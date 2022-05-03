@@ -8,3 +8,30 @@ body {
 	background-color: #212121;
 	background-size: cover;
 }
+
+.cardlist::before,
+.cardlist::after {
+	content: "";
+	display: block;
+	z-index: 100;
+	width: 0px;
+	height: 0px;
+	transform: translateX(-50%);
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+}
+
+.cardlist::before {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	border-top: 25px solid whitesmoke;
+}
+
+.cardlist::after {
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	border-bottom: 25px solid whitesmoke;
+;
+}
