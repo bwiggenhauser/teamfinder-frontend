@@ -4,6 +4,7 @@ import ActivePlayers from "./ActivePlayers/ActivePlayers";
 import "./App.css";
 import Buttons from "./Buttons/Buttons";
 import CardList from "./CardList/CardList";
+import Header from "./Header/Header";
 import PlayerToggle from "./PlayerToggle/PlayerToggle";
 
 function App() {
@@ -43,31 +44,13 @@ function App() {
 		socket.emit("reset");
 	}
 
+	function roll() {
+		socket.emit("roll");
+	}
+
 	return (
 		<div>
-			<div
-				style={{
-					paddingTop: "50px",
-				}}>
-				<h1
-					style={{
-						textAlign: "center",
-						fontSize: "4em",
-						color: "whitesmoke",
-					}}>
-					Der große Faceit Team Finder
-				</h1>
-				<p
-					style={{
-						textAlign: "center",
-						color: "whitesmoke",
-						marginTop: "50px",
-						fontSize: "1.2em",
-					}}>
-					Wähle den Topf an herausragenden Spielern, aus dem gezogen
-					wird:
-				</p>
-			</div>
+			<Header />
 
 			{/* ACTIVE PLAYERS TOGGLES */}
 			<ActivePlayers
@@ -79,7 +62,8 @@ function App() {
 			{/* CARDLIST */}
 			<CardList configuration={configuration} />
 
-			<Buttons resetFunction={reset} />
+			{/* ACTION BUTTONS */}
+			<Buttons resetFunction={reset} rollFunction={roll} />
 		</div>
 	);
 }
