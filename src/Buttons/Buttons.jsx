@@ -3,9 +3,13 @@ import "./Buttons.css";
 
 export default function Buttons(props) {
 	return (
-		<div className="center-div">
-			<button className="reset button" onClick={props.resetFunction}>Reset</button>
-			<button className="roll button">Spieler ziehen</button>
+		<div className="center-div buttons-wrapper">
+			<button className="reset button" onClick={props.resetFunction}>
+				Reset
+			</button>
+			<button className="roll button" onClick={props.rollFunction}>
+				Spieler ziehen
+			</button>
 		</div>
 	);
 }
