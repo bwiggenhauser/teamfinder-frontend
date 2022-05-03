@@ -32,6 +32,10 @@ function App() {
 			setConfiguraton(data);
 		});
 
+		socket.on("roll", (data) => {
+			animateRoll(data);
+		});
+
 		setSocket(socket);
 		return () => socket.close();
 	}, [setSocket]);
@@ -44,8 +48,27 @@ function App() {
 		socket.emit("reset");
 	}
 
-	function roll() {
-		socket.emit("roll");
+	function emitRoll() {
+		socket.emit("emit-roll");
+	}
+
+	function animateRoll(val) {
+		$(".card").first().animate(
+			{
+				marginLeft: 0,
+			},
+			{
+				duration: 0,
+			}
+		);
+		$(".card").first().animate(
+			{
+				marginLeft: -val,
+			},
+			{
+				duration: 4150,
+			}
+		);
 	}
 
 	return (
@@ -63,7 +86,7 @@ function App() {
 			<CardList configuration={configuration} />
 
 			{/* ACTION BUTTONS */}
-			<Buttons resetFunction={reset} rollFunction={roll} />
+			<Buttons resetFunction={reset} rollFunction={emitRoll} />
 		</div>
 	);
 }
