@@ -46,6 +46,14 @@ function App() {
 
 	function reset() {
 		socket.emit("reset");
+		$(".card").first().animate(
+			{
+				marginLeft: 0,
+			},
+			{
+				duration: 0,
+			}
+		);
 	}
 
 	function emitRoll() {
