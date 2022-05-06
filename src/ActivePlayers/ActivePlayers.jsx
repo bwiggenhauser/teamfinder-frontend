@@ -21,6 +21,10 @@ export default function ActivePlayers(props) {
 						key={"toggle-" + player}
 					/>
 				))}
+				<div className="add-player-wrapper">
+					<input type="text" id="add-player-input" />
+					<button id="add-player-button">+</button>
+				</div>
 			</div>
 		</div>
 	);
