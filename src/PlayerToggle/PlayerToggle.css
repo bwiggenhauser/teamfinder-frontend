@@ -15,11 +15,11 @@
 
 .false {
 	background-color: #333;
-    box-shadow: 0px 0px 0px 2px aqua;
+    box-shadow: 0px 0px 0px 2px #1e7da0;
 }
 
 .personCheckbox:hover {
-	background-color: aqua;
+	background-color: #1e7da0;
 	color: #212121;
 }
 
