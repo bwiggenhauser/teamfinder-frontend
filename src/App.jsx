@@ -9,7 +9,8 @@ import CaseSound from "./Sounds/csgo_case_sound.mp3";
 import ClickSound from "./Sounds/click.mp3";
 
 function App() {
-	const BACKEND_ENDPOINT = "localhost:3001";
+	// const BACKEND_ENDPOINT = "localhost:3001";
+	const BACKEND_ENDPOINT = "https://teamfinderserver.bwiggenhauser.de";
 
 	const [socket, setSocket] = useState(null);
 	const [allPlayers, setAllPlayers] = useState([]);
