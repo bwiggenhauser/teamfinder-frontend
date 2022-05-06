@@ -13,3 +13,50 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.add-player-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	position: relative;
+	width: 150px;
+	margin-top: 10px;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 5px;
+	transition: 0.4s;
+	background-color: #2596be;
+	color: whitesmoke;
+}
+
+#add-player-input {
+	width: 80px;
+	padding: 5px;
+	border-radius: 5px;
+	outline: none;
+	border: 2px solid whitesmoke;
+	background-color: #2596be;
+	color: whitesmoke;
+	transition: 0.5s;
+}
+
+#add-player-input:focus {
+	width: 100px;
+}
+
+#add-player-button {
+    width: 30px;
+	border-radius: 5px;
+	outline: none;
+	border: 2px solid whitesmoke;
+	background-color: #2596be;
+	color: whitesmoke;
+	transition: 0.5s;
+    font-weight: 900;
+}
+
+#add-player-button:hover {
+    cursor: pointer;
+    color: #2596be;
+	background-color: whitesmoke;
+}
