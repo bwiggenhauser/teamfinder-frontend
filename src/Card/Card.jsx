@@ -1,17 +1,22 @@
 import React from "react";
 import "./Card.css";
-import image from "../Images/mendel.jpg";
+import { imageProvider } from "./ImageProvider";
 
 export default function Card(props) {
+	const rarityLookup = {
+		1: "blue",
+		2: "pink",
+		3: "red",
+	};
 	return (
-		<div className="card">
+		<div className={"card " + rarityLookup[props.rarity]}>
 			<div
-				className="top-margin"
+				className="top-margin img"
 				style={{
-					backgroundImage: `url(${image})`,
-					width: "120px",
-					height: "120px",
-					backgroundSize: "cover",
+					backgroundImage: `url(${imageProvider(
+						props.name,
+						props.rarity
+					)})`,
 				}}
 			/>
 			<div className="name top-margin">{props.name}</div>

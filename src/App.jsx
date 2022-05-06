@@ -5,7 +5,8 @@ import "./App.css";
 import Buttons from "./Buttons/Buttons";
 import CardList from "./CardList/CardList";
 import Header from "./Header/Header";
-import PlayerToggle from "./PlayerToggle/PlayerToggle";
+import CaseSound from "./Sounds/csgo_case_sound.mp3";
+import ClickSound from "./Sounds/click.mp3";
 
 function App() {
 	const BACKEND_ENDPOINT = "localhost:3001";
@@ -21,7 +22,6 @@ function App() {
 
 		socket.on("all-players", (data) => {
 			setAllPlayers(data);
-			console.log("All Players = " + allPlayers.toString());
 		});
 
 		socket.on("all-players-temp", (data) => {
@@ -29,6 +29,7 @@ function App() {
 		});
 
 		socket.on("active-players", (data) => {
+			playSound(ClickSound, 0.2);
 			setActivePlayers(data);
 		});
 
@@ -37,6 +38,7 @@ function App() {
 		});
 
 		socket.on("roll", (data) => {
+			playSound(CaseSound, 0.33);
 			animateRoll(data);
 		});
 
@@ -50,6 +52,12 @@ function App() {
 
 	function addPlayer(player) {
 		socket.emit("update-player", player);
+	}
+
+	function playSound(soundLink, volume) {
+		let sound = new Audio(soundLink);
+		sound.volume = volume;
+		sound.play();
 	}
 
 	function reset() {

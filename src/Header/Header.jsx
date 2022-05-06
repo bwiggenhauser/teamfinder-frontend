@@ -19,7 +19,7 @@ export default function Header() {
 				style={{
 					textAlign: "center",
 					color: "whitesmoke",
-					marginTop: "50px",
+					marginTop: "30px",
 					fontSize: "1.2em",
 				}}>
 				Wähle den Topf an herausragenden Spielern, aus dem gezogen wird:
