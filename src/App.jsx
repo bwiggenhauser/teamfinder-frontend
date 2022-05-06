@@ -12,6 +12,7 @@ function App() {
 
 	const [socket, setSocket] = useState(null);
 	const [allPlayers, setAllPlayers] = useState([]);
+	const [allPlayersTemp, setAllPlayersTemp] = useState([]);
 	const [activePlayers, setActivePlayers] = useState([]);
 	const [configuration, setConfiguraton] = useState([]);
 
@@ -23,9 +24,12 @@ function App() {
 			console.log("All Players = " + allPlayers.toString());
 		});
 
+		socket.on("all-players-temp", (data) => {
+			setAllPlayersTemp(data);
+		});
+
 		socket.on("active-players", (data) => {
 			setActivePlayers(data);
-			console.log("Active Players = " + activePlayers.toString());
 		});
 
 		socket.on("configuration", (data) => {
@@ -42,6 +46,10 @@ function App() {
 
 	function togglePlayerActive(playerName) {
 		socket.emit("update-player", playerName);
+	}
+
+	function addPlayer(player) {
+		socket.emit("update-player", player);
 	}
 
 	function reset() {
@@ -85,9 +93,10 @@ function App() {
 
 			{/* ACTIVE PLAYERS TOGGLES */}
 			<ActivePlayers
-				allPlayers={allPlayers}
+				allPlayers={allPlayersTemp}
 				activePlayers={activePlayers}
 				togglePlayerActive={togglePlayerActive}
+				addPlayerFunction={addPlayer}
 			/>
 
 			{/* CARDLIST */}

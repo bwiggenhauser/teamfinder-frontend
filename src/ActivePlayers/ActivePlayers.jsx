@@ -10,20 +10,29 @@ export default function ActivePlayers(props) {
 			return false;
 		}
 	}
+
+	function playerAdd() {
+		const value = document.getElementById("add-player-input").value;
+		document.getElementById("add-player-input").value = "";
+		props.addPlayerFunction(value);
+	}
+
 	return (
 		<div className="center-div">
 			<div className="active-players-wrapper">
 				{props.allPlayers.map((player) => (
 					<PlayerToggle
+						key={"toggle " + player}
 						name={player}
 						activeStatus={getActiveStatus(player)}
 						togglePlayer={props.togglePlayerActive}
-						key={"toggle-" + player}
 					/>
 				))}
 				<div className="add-player-wrapper">
 					<input type="text" id="add-player-input" />
-					<button id="add-player-button">+</button>
+					<button id="add-player-button" onClick={playerAdd}>
+						+
+					</button>
 				</div>
 			</div>
 		</div>
