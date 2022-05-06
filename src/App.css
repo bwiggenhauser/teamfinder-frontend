@@ -17,21 +17,21 @@ body {
 	width: 0px;
 	height: 0px;
 	transform: translateX(-50%);
-	border-left: 8px solid transparent;
-	border-right: 8px solid transparent;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
 }
 
 .cardlist::before {
 	position: absolute;
 	top: 0px;
 	left: 50%;
-	border-top: 25px solid whitesmoke;
+	border-top: 20px solid whitesmoke;
 }
 
 .cardlist::after {
 	position: absolute;
 	bottom: 0px;
 	left: 50%;
-	border-bottom: 25px solid whitesmoke;
+	border-bottom: 20px solid whitesmoke;
 ;
 }
